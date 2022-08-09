@@ -3,14 +3,6 @@ let productoElegido = parseInt(
     "¿Que producto desea comprar? Ingrese el número que hace referencia a la opción que desea elegir \n\n1. Remera $2300 \n2. Jean $4250 \n3. Campera $8400 \n4. Zapatillas $11800"
   )
 );
-while (productoElegido != 1 && 2 && 3 && 4) {
-  alert("Por favor ingrese un numero valido");
-  parseInt(
-    prompt(
-      "¿Que producto desea comprar? Ingrese el número que hace referencia a la opción que desea elegir \n\n1. Remera $2300 \n2. Jean $4250 \n3. Campera $8400 \n4. Zapatillas $11800"
-    )
-  );
-}
 
 let precioProducto;
 
@@ -30,6 +22,32 @@ let cuantasCuotas = parseInt(
   )
 );
 
-let precioFinal;
+function recargoCuotas(cuotas) {
+  switch (cuotas) {
+    case 1:
+      return precioProducto * 0;
+      break;
+    case 3:
+      return precioProducto * 0.1;
+      break;
+    case 6:
+      return precioProducto * 0.15;
+      break;
+    case 12:
+      return precioProducto * 0.2;
+      break;
+  }
+}
 
-function recargoCuotas(cuantasCuotas) {}
+let recargo = recargoCuotas(cuantasCuotas);
+
+let precioFinal = precioProducto + recargo;
+
+alert(
+  "el precio final del producto es " +
+    precioFinal +
+    " pagando " +
+    cuantasCuotas +
+    " cuotas de " +
+    precioFinal / cuantasCuotas
+);
